@@ -138,7 +138,13 @@ app.post("/switch", function(req,res){
     res.redirect("/");
   }
   else{
-    res.redirect("/lists/"+listName);
+    if(listName){
+        res.redirect("/lists/"+listName);
+    }
+    else{
+      res.redirect("/");
+    }
+
   }
 });
 
