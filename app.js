@@ -132,17 +132,23 @@ app.post("/delete",function(req,res){
 
 
 app.post("/switch", function(req,res){
-  const listName = req.body.newList;
+  const listName = req.body.listName;
+  const newListName = req.body.newList;
   const goTo = req.body.goto;
   if(goTo==="home"){
     res.redirect("/");
   }
   else{
-    if(listName){
-        res.redirect("/lists/"+listName);
+    if(newListName){
+        res.redirect("/lists/"+newListName);
     }
     else{
-      res.redirect("/");
+      if(listName ==="Today"){
+        res.redirect("/");
+      }
+      else{
+        res.redirect("/lists/"+listName);
+      }
     }
 
   }
