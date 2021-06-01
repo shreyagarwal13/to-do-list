@@ -1,7 +1,7 @@
 <%- include("header") -%>
 
   <div class="box" id="heading">
-    <h1> <%=listTitle %></h1>
+    <h1> Today</h1>
   </div>
 
 
@@ -13,23 +13,22 @@
         <input type="checkbox" name="checkbox" value="<%= newItems[i]._id %>" onChange="this.form.submit()">
         <p> <%= newItems[i].name %> </p>
       </div>
-      <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+      <input type="hidden" name="listName" value=""></input>
     </form>
     <% } %>
 
     <form class="item enter-task" action="/" method="post">
-      <input type="text" name="item" placeholder="New Task" autocomplete="off">
-      <button type="submit" name="list" value= '<%= listTitle %>' >+</button>
+      <div class="item">
+        <input type="text" name="item" placeholder="New Task" autocomplete="off">
+      </div>
+      <button type="submit" name="list" class="add" value= "" >+</button>
     </form>
 
   </div>
 
-  <div class="box">
-    <form class="switch-form" action="/switch" method="post">
-      <input class="new-list" type="text" name="newList" placeholder="List Name" autocomplete="off">
-      <button class="switch-btn" type="submit" name="goto" value='switch'>Go to list</button>
-      <button class="home-btn" type="submit" name="goto" value='home'><i class="fas fa-home"></i></button>
-      <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+  <div class="sign-out">
+    <form action="/signout" method="post">
+      <button class="sign-out-btn" type="submit" name="goto" value='home'>Sign Out</button>
     </form>
   </div>
 

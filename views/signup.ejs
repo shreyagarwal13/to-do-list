@@ -1,0 +1,26 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1>Sign Up</h1>
+  </div>
+
+  <div class="box sign-in">
+    <form action="/signup" method="post" >
+      <p>Email-ID</p>
+      <input type="email" name="username" autocomplete="on" required>
+      <p>Password</p>
+      <input type="password" name="password" autocomplete="off" required>
+      <button class="sign-up-btn" type="submit" name="goto" value='home'>Sign Up</button>
+    </form>
+  </div>
+
+  <div class="info">
+    Already a member?  Click <a href="/login">here to Login</a>
+    <% if(messages.error){ %>
+      <div id="error-div">
+        <i class="fas fa-exclamation-circle"></i> <%= messages.error %>
+      </div>
+    <% } %>
+  </div>
+
+<%- include("footer") -%>
