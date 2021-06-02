@@ -25,7 +25,7 @@ app.use(passport.session());
 app.use(flash());
 
 
-mongoose.connect('mongodb+srv://admin-shrey:'+process.env.MONGO_PASS+'@cluster0.jbvit.mongodb.net/todolistDB', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.set("useCreateIndex", true);
 
 
